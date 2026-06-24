@@ -70,39 +70,70 @@
             <a href="#como-funciona" class="btn btn--outline btn--lg">Como funciona</a>
           </div>
         </div>
-        <div class="hero__visual" aria-hidden="true">
-          <div class="hero-card">
-            <div class="hero-card__header">
-              <span class="hero-card__dot"></span>
-              <span class="hero-card__dot"></span>
-              <span class="hero-card__dot"></span>
-            </div>
-            <div class="hero-card__body">
-              <div class="hero-card__message hero-card__message--in">
-                <span class="hero-card__avatar">C</span>
-                <div class="hero-card__bubble">
-                  <span class="hero-card__label">Comprovante recebido</span>
-                  <span class="hero-card__amount">R$ 150,00</span>
+        <div class="hero__visual">
+          <div class="flow-demo" aria-hidden="true">
+            <div class="flow-demo__theater">
+              <div class="phone">
+                <div class="phone__frame">
+                  <div class="phone__notch"></div>
+                  <div class="phone__screen">
+                    <div class="phone__lock">
+                      <span class="phone__time">14:32</span>
+                      <span class="phone__date">qua., 24 de jun.</span>
+                    </div>
+                    <div class="phone__notification">
+                      <div class="phone__notification-icon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                      </div>
+                      <div class="phone__notification-content">
+                        <span class="phone__notification-app">WhatsApp</span>
+                        <span class="phone__notification-title">Comprovante Pix</span>
+                        <span class="phone__notification-body">R$ 150,00 · Cliente</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="hero-card__message hero-card__message--out">
-                <div class="hero-card__bubble hero-card__bubble--success">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+
+              <div class="receipt receipt--flying">
+                <div class="receipt__header">Comprovante Pix</div>
+                <div class="receipt__row"><span>Valor</span><strong>R$ 150,00</strong></div>
+                <div class="receipt__row"><span>Pagador</span><span>Cliente Silva</span></div>
+                <div class="receipt__row"><span>Data</span><span>24/06/2026</span></div>
+              </div>
+
+              <div class="process-zone">
+                <span class="process-zone__badge">IA Registra Pix</span>
+                <div class="receipt receipt--zone">
+                  <div class="receipt__header">Comprovante Pix</div>
+                  <div class="receipt__row"><span>Valor</span><strong>R$ 150,00</strong></div>
+                  <div class="receipt__row"><span>Pagador</span><span>Cliente Silva</span></div>
+                  <div class="receipt__row"><span>Data</span><span>24/06/2026</span></div>
+                </div>
+                <svg class="magnifier" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <circle cx="17" cy="17" r="11" stroke="currentColor" stroke-width="3" fill="rgba(255,255,255,0.9)"/>
+                  <line x1="25" y1="25" x2="36" y2="36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <div class="validation-check">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
                     <path d="M20 6L9 17l-5-5"/>
                   </svg>
-                  Validado e registrado
                 </div>
               </div>
-              <div class="hero-card__stats">
-                <div class="hero-card__stat">
-                  <span class="hero-card__stat-value">47</span>
-                  <span class="hero-card__stat-label">Hoje</span>
-                </div>
-                <div class="hero-card__stat">
-                  <span class="hero-card__stat-value">R$ 8.420</span>
-                  <span class="hero-card__stat-label">Faturamento</span>
-                </div>
-              </div>
+            </div>
+
+            <div class="flow-demo__totalizer">
+              <span class="flow-demo__totalizer-label">Faturamento hoje</span>
+              <span class="flow-demo__totalizer-value" data-from="8420" data-increment="150">R$&nbsp;8.420</span>
+            </div>
+
+            <div class="flow-demo__captions">
+              <span class="flow-demo__caption flow-demo__caption--1">Comprovante recebido no WhatsApp</span>
+              <span class="flow-demo__caption flow-demo__caption--2">IA captura automaticamente</span>
+              <span class="flow-demo__caption flow-demo__caption--3">Analisando autenticidade...</span>
+              <span class="flow-demo__caption flow-demo__caption--4">Validado! Faturamento atualizado</span>
             </div>
           </div>
         </div>
@@ -351,6 +382,7 @@
     </div>
   </footer>
 
+  <script src="js/hero-animation.js" defer></script>
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');

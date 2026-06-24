@@ -315,9 +315,11 @@ ol {
   justify-content: center;
 }
 
-.hero-card {
+/* Flow demo animation */
+.flow-demo {
+  --flow-duration: 7.5s;
   width: 100%;
-  max-width: 380px;
+  max-width: 480px;
   background: var(--color-bg-alt);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
@@ -325,124 +327,458 @@ ol {
   overflow: hidden;
 }
 
-.hero-card__header {
+.flow-demo__theater {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 0.75rem;
+  min-height: 320px;
+}
+
+/* Phone */
+.phone {
   display: flex;
-  gap: 6px;
-  padding: 0.875rem 1rem;
+  justify-content: center;
+}
+
+.phone__frame {
+  position: relative;
+  width: 150px;
   background: var(--color-text);
+  border-radius: 22px;
+  padding: 8px;
+  box-shadow: var(--shadow-md);
 }
 
-.hero-card__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+.phone__notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 6px;
+  background: #000;
+  border-radius: 100px;
+  z-index: 2;
 }
 
-.hero-card__dot:first-child {
-  background: #EF4444;
+.phone__screen {
+  position: relative;
+  height: 260px;
+  background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.hero-card__dot:nth-child(2) {
-  background: #F59E0B;
-}
-
-.hero-card__dot:nth-child(3) {
-  background: #22C55E;
-}
-
-.hero-card__body {
-  padding: 1.25rem;
+.phone__lock {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  padding-top: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.hero-card__message {
+.phone__time {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.phone__date {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.phone__notification {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  right: 6px;
   display: flex;
-  align-items: flex-end;
   gap: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-120%);
 }
 
-.hero-card__message--out {
-  justify-content: flex-end;
+.flow-demo.is-playing .phone__notification {
+  animation: notificationSlideIn var(--flow-duration) ease infinite;
 }
 
-.hero-card__avatar {
+.phone__notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background: #25D366;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.phone__notification-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.phone__notification-app {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.phone__notification-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.phone__notification-body {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Process zone */
+.process-zone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: 1.5rem 1rem 1rem;
+  background: var(--color-primary-light);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+}
+
+.flow-demo.is-playing .process-zone {
+  animation: processZoneReveal var(--flow-duration) ease infinite;
+}
+
+.process-zone__badge {
+  position: absolute;
+  top: -0.625rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* Receipt */
+.receipt {
+  width: 100%;
+  max-width: 160px;
+  padding: 0.625rem 0.75rem;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.receipt__header {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.receipt__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.receipt__row strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.receipt--flying {
+  position: absolute;
+  top: var(--receipt-top, 100px);
+  left: var(--receipt-left, 50%);
+  margin-left: -80px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flow-demo.is-playing .receipt--flying {
+  animation: receiptExtract var(--flow-duration) ease infinite;
+}
+
+.receipt--zone {
+  opacity: 0;
+}
+
+.flow-demo.is-playing .receipt--zone {
+  animation: receiptZoneAppear var(--flow-duration) ease infinite;
+}
+
+/* Magnifier */
+.magnifier {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  color: var(--color-primary-dark);
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.flow-demo.is-playing .magnifier {
+  animation: magnifierScan var(--flow-duration) ease infinite;
+}
+
+/* Validation check */
+.validation-check {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background: var(--color-primary-light);
-  color: var(--color-primary-dark);
-  font-size: 0.75rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.hero-card__bubble {
-  padding: 0.75rem 1rem;
-  background: var(--color-bg);
-  border-radius: var(--radius-md) var(--radius-md) var(--radius-md) 4px;
-  font-size: 0.875rem;
-}
-
-.hero-card__message--out .hero-card__bubble {
-  border-radius: var(--radius-md) var(--radius-md) 4px var(--radius-md);
-}
-
-.hero-card__bubble--success {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
   background: var(--color-primary);
   color: #fff;
-  font-weight: 500;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  transform: scale(0);
+  opacity: 0;
 }
 
-.hero-card__label {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.25rem;
+.flow-demo.is-playing .validation-check {
+  animation: checkPop var(--flow-duration) cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
 
-.hero-card__amount {
-  display: block;
+/* Totalizer */
+.flow-demo__totalizer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.25rem;
+  background: var(--color-text);
+  color: #fff;
+}
+
+.flow-demo.is-playing .flow-demo__totalizer {
+  animation: totalizerPulse var(--flow-duration) ease infinite;
+}
+
+.flow-demo__totalizer-label {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.flow-demo__totalizer-value {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-primary);
+  transition: color 0.3s ease;
 }
 
-.hero-card__stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  padding-top: 0.5rem;
+.flow-demo__totalizer-value.is-updated {
+  color: #4ade80;
+}
+
+/* Captions */
+.flow-demo__captions {
+  position: relative;
+  height: 2.5rem;
+  padding: 0.5rem 1.25rem 1rem;
+  background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
 }
 
-.hero-card__stat {
+.flow-demo__caption {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
   text-align: center;
-  padding: 0.75rem;
-  background: var(--color-primary-light);
-  border-radius: var(--radius-md);
-}
-
-.hero-card__stat-value {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--color-primary-dark);
+  opacity: 0;
 }
 
-.hero-card__stat-label {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  margin-top: 0.125rem;
+.flow-demo.is-playing .flow-demo__caption--1 {
+  animation: caption1 var(--flow-duration) ease infinite;
+}
+
+.flow-demo.is-playing .flow-demo__caption--2 {
+  animation: caption2 var(--flow-duration) ease infinite;
+}
+
+.flow-demo.is-playing .flow-demo__caption--3 {
+  animation: caption3 var(--flow-duration) ease infinite;
+}
+
+.flow-demo.is-playing .flow-demo__caption--4 {
+  animation: caption4 var(--flow-duration) ease infinite;
+}
+
+/* Keyframes */
+@keyframes notificationSlideIn {
+  0%, 4% { opacity: 0; transform: translateY(-120%); }
+  8% { opacity: 1; transform: translateY(8px); }
+  12% { transform: translateY(0); }
+  24%, 86% { opacity: 1; transform: translateY(0); }
+  92%, 100% { opacity: 0; transform: translateY(-120%); }
+}
+
+@keyframes processZoneReveal {
+  0%, 22% { opacity: 0; }
+  28%, 86% { opacity: 1; }
+  92%, 100% { opacity: 0; }
+}
+
+@keyframes receiptExtract {
+  0%, 20% { opacity: 0; transform: translate(0, 0) scale(0.85); }
+  24% { opacity: 1; transform: translate(0, 0) scale(1); }
+  40% { opacity: 1; transform: translate(0, 0) scale(1); }
+  55%, 100% { opacity: 0; transform: translate(var(--receipt-dx, 0), var(--receipt-dy, 80px)) scale(0.7); }
+}
+
+@keyframes receiptZoneAppear {
+  0%, 38% { opacity: 0; transform: scale(0.9); }
+  42%, 86% { opacity: 1; transform: scale(1); }
+  92%, 100% { opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes magnifierScan {
+  0%, 38% { opacity: 0; transform: translate(-30px, -10px); }
+  42% { opacity: 1; transform: translate(-30px, -10px); }
+  50% { opacity: 1; transform: translate(30px, -10px); }
+  58% { opacity: 1; transform: translate(-20px, 8px); }
+  66% { opacity: 1; transform: translate(25px, 8px); }
+  69%, 100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes checkPop {
+  0%, 58% { opacity: 0; transform: scale(0); }
+  62% { opacity: 1; transform: scale(1.15); }
+  66%, 86% { opacity: 1; transform: scale(1); }
+  92%, 100% { opacity: 0; transform: scale(0); }
+}
+
+@keyframes totalizerPulse {
+  0%, 68% { background: var(--color-text); }
+  72%, 78% { background: #1e3a35; box-shadow: inset 0 0 0 1px var(--color-primary); }
+  82%, 100% { background: var(--color-text); box-shadow: none; }
+}
+
+@keyframes caption1 {
+  0%, 23% { opacity: 1; }
+  24%, 100% { opacity: 0; }
+}
+
+@keyframes caption2 {
+  0%, 23% { opacity: 0; }
+  24%, 39% { opacity: 1; }
+  40%, 100% { opacity: 0; }
+}
+
+@keyframes caption3 {
+  0%, 39% { opacity: 0; }
+  40%, 68% { opacity: 1; }
+  69%, 100% { opacity: 0; }
+}
+
+@keyframes caption4 {
+  0%, 68% { opacity: 0; }
+  69%, 92% { opacity: 1; }
+  93%, 100% { opacity: 0; }
+}
+
+/* Reduced motion: static final state */
+@media (prefers-reduced-motion: reduce) {
+  .flow-demo.is-playing .phone__notification,
+  .flow-demo.is-playing .process-zone,
+  .flow-demo.is-playing .receipt--flying,
+  .flow-demo.is-playing .receipt--zone,
+  .flow-demo.is-playing .magnifier,
+  .flow-demo.is-playing .validation-check,
+  .flow-demo.is-playing .flow-demo__totalizer,
+  .flow-demo.is-playing .flow-demo__caption--1,
+  .flow-demo.is-playing .flow-demo__caption--2,
+  .flow-demo.is-playing .flow-demo__caption--3,
+  .flow-demo.is-playing .flow-demo__caption--4 {
+    animation: none !important;
+  }
+
+  .phone__notification {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .process-zone {
+    opacity: 1;
+  }
+
+  .receipt--flying {
+    display: none;
+  }
+
+  .receipt--zone {
+    opacity: 1;
+  }
+
+  .validation-check {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .magnifier {
+    display: none;
+  }
+
+  .flow-demo__caption--1,
+  .flow-demo__caption--2,
+  .flow-demo__caption--3 {
+    display: none;
+  }
+
+  .flow-demo__caption--4 {
+    opacity: 1;
+    position: static;
+  }
+
+  .flow-demo__captions {
+    height: auto;
+  }
+
+  .flow-demo__totalizer-value::after {
+    content: none;
+  }
 }
 
 /* Sections */
@@ -805,6 +1141,25 @@ ol {
   .hero__inner {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+  }
+
+  .flow-demo__theater {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 280px;
+  }
+
+  .phone__frame {
+    width: 140px;
+  }
+
+  .phone__screen {
+    height: 240px;
+  }
+
+  .process-zone {
+    min-height: 200px;
   }
 
   .section {
