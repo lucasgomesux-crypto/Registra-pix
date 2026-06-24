@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#F8FAFB"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="#1A1A2E"/>
+  <circle cx="180" cy="180" r="48" fill="#32BCAD"/>
+  <text x="260" y="195" font-family="system-ui, sans-serif" font-size="56" font-weight="700" fill="white">Registra Pix</text>
+  <text x="180" y="300" font-family="system-ui, sans-serif" font-size="36" fill="#E2E8F0">Automatize comprovantes Pix recebidos no WhatsApp</text>
+  <text x="180" y="370" font-family="system-ui, sans-serif" font-size="28" fill="#94A3B8">Validação em tempo real · Registro automático de faturamento</text>
+  <rect x="180" y="420" width="280" height="56" rx="12" fill="#32BCAD"/>
+  <text x="320" y="456" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="white" text-anchor="middle">Fale conosco</text>
+</svg>
